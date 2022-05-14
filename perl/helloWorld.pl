@@ -46,7 +46,7 @@ print "var: @var\n";
 my $pop = pop(@var);
 print "pop: $pop\n";
 print "var: @var\n";
-
+#shift and unshift are push and pop for the beginning of the array
 unshift(@var, "f");
 print "var: @var\n";
 
@@ -149,3 +149,53 @@ do {
 #bitwise operators are: &, |, ^, ~, <<, >>
 #logical operators are: and, or, not
 #bitwise operators are: &&, ||, !
+
+
+#subroutines
+#perl uses the term subroutine, function, and method interchangeably
+
+sub hello {
+    print("hello world\n");
+}
+hello();
+
+sub printWords {
+    foreach my $tmp (@_) {
+        print("$tmp\n");
+    }
+}
+printWords("hello", "world");
+
+sub passInArray {
+    print "@_\n";
+}
+
+my @tmparry = ("hello", "world");
+passInArray("pre",@tmparry);
+passInArray(@tmparry,"post");
+
+#hashs are not deterministic
+sub printHash{
+    my %hash = @_;
+    foreach my $key (keys %hash) {
+        print("$key: $hash{$key}\n");
+    }
+}
+my %hash = ("a" => "1", "b" => "2", "c" => "3");
+my %hash2 = ("d" => "4", "e" => "5", "f" => "6");
+printHash(%hash);
+print "\n";
+printHash(%hash,%hash2);
+
+
+# my is local scope, local is global scope but will be distroyed when the subroutine is finished, our is global scope
+# state is local scope but will not be destroyed when the subroutine is finished. Think recursion without needing to pass the same value in
+
+#create a pointer with \ (called a reference in perl)
+#derefrence a pointer with with the corect type of data
+my @newarray = (0..10);
+my $pointer = \@newarray;
+print "$pointer\n";
+print "@$pointer\n";
+#should use pointers when passing hash tables or arrays to subroutines
+
