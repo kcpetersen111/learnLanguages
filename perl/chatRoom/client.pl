@@ -23,30 +23,38 @@ sub startClient {
     connect(TO_SERVER,$paddr) or die "Cannot connect to $host:$port\n";
     # connect(SOCKET, pack_sockaddr_in($port,inet_aton($host))) or die "Can't connect to port $port! \n";
 
-    # @initThreads
+    # my @initThreads =[1,2];
     # push(@initThreads, 0);
     # push(@initThreads, 1);
+    
 
+    threads -> create(\&serverOutPut);
+    # threads -> create(\&clientInput);
+    serverInput();
 
-    # threads -> create(\&serverOutPut);
+    print "Exiting\n";
 
+    # my $line;
+    # while ($line = <TO_SERVER>) {
+    #     # print "$line\n";
+    #     my $input = <>;
+    #     # print "You: $input\n";
+    #     # my $final = chop($input);
+    #     send(TO_SERVER, $input, 1024);
+    #     # print TO_SERVER "$final\n";
+    # }
+}
 
-    my $line;
-    while ($line = <TO_SERVER>) {
-        print "$line\n";
+sub serverInput {
+    
+    while (1 == 1) {
+        # print "$line\n";
         my $input = <>;
         # print "You: $input\n";
         # my $final = chop($input);
         send(TO_SERVER, $input, 1024);
         # print TO_SERVER "$final\n";
-    }
-}
-
-sub serverInput {
-    my $line;
-    while ($line = <TO_SERVER>) {
-        print "$line\n";
-    }
+    }    
 }
 
 sub serverOutPut {

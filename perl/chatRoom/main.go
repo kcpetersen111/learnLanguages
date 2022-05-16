@@ -85,17 +85,18 @@ func handleConnection(toServer chan Packet, fromServer chan Packet, p1 Person) {
 	for {
 		fmt.Fprintln(p1.Conn, "What would you like to say?")
 
-		p1.Scanner.Scan()
-		input := p1.Scanner.Text()
+		if p1.Scanner.Scan() {
 
-		newPacket := Packet{
-			Sender: p1,
-			Data: input,
+			input := p1.Scanner.Text()
+
+			newPacket := Packet{
+				Sender: p1,
+				Data: input,
+			}
+
+		
+			toServer <- newPacket
 		}
-
-	
-		toServer <- newPacket
-
 		
 
 		
