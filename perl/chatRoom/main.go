@@ -27,6 +27,8 @@ func main() {
 	
 	go acceptConn(toServer,fromServer, &connections)
 
+	log.Println("The server is now online.")
+
 	for {
 		//will need to accept data from confections
 		
@@ -58,6 +60,7 @@ func acceptConn(toServer chan Packet, fromServer chan Packet, connections *[]Per
 			log.Printf("Error when someone tries to join: %v\n",err)
 		}
 
+		log.Printf("Some one is joining the room.\n")
 		fmt.Fprintf(conn,"What is your name?\n")
 		
 		scanner := bufio.NewScanner(conn)
@@ -80,7 +83,7 @@ func acceptConn(toServer chan Packet, fromServer chan Packet, connections *[]Per
 
 func handleConnection(toServer chan Packet, fromServer chan Packet, p1 Person) {
 	for {
-		// fmt.Fprintln(p1.Conn, "What would you like to say?")
+		fmt.Fprintln(p1.Conn, "What would you like to say?")
 
 		p1.Scanner.Scan()
 		input := p1.Scanner.Text()
