@@ -81,6 +81,114 @@ x = np.arange(10)
 # plt.show()
 
 #can change the grid to have different color, line style, and line width
-plt.plot(y)
-plt.grid(color='r', linestyle='--', linewidth=2)
-plt.show()  
+
+# plt.plot(y)
+# plt.grid(color='r', linestyle='--', linewidth=2)
+# plt.show()  
+
+#can show multiple plots on the same figure
+# in the subplot command it takes 3 arguments: the number of rows, the number of columns, and the number of the plot
+
+# #plot 1
+# plt.subplot(1,2,1)
+# plt.plot(x)
+# #plot 2
+# plt.subplot(1,2,2)
+# plt.plot(y)
+# plt.show()
+
+# here is an example of 4 graphs with some titles and a main title
+
+# #plot 1
+# plt.subplot(2,2,1)
+# plt.plot(x)
+# plt.title('Plot 1')
+# #plot 2
+# plt.subplot(2,2,2)
+# plt.plot(y)
+# #plot 3
+# plt.subplot(2,2,3)
+# plt.plot(y)
+# #plot 4
+# plt.subplot(2,2,4)
+# plt.plot(x)
+# plt.title('Plot 4')
+# plt.suptitle('The title')
+# plt.show()
+
+#can do other types of plots
+
+#a scatter plot requires two arrays of the same size
+
+# plt.scatter(x,y)
+# plt.show()
+
+#can do two scatter plots on top of each other
+
+# plt.scatter(x,y, color='r')
+# plt.scatter(x,x, color='b')
+# plt.show()
+
+#you can color each individual point
+
+# cmap is built in color maps
+
+colorarr = np.arange(0,100,10)
+# plt.scatter(x,y, c=colorarr, cmap='RdBu')
+# plt.show()
+
+# can also change the size of each point
+
+#can change the transparency with alpha values
+
+sizearr = np.arange(0,100,10)
+# plt.scatter(x,y, s=sizearr, cmap='RdBu', c=colorarr, alpha=0.5)
+# plt.show()
+
+
+
+#can do bar graphs
+
+# plt.bar(x,y)
+# plt.show()
+
+#can do horizontal bar graphs
+
+# plt.barh(x,y)
+# plt.show()
+
+#can do width(height for horizontal bar graphs) and color
+
+# plt.bar(x,x , width=0.5, color='r')
+# plt.show()
+
+#can also do histograms
+
+# plt.hist(x)
+# plt.show()
+
+#can pick how many bins to put the data in 
+
+normal = np.random.normal(size=100)
+# plt.hist(normal,bins=6)
+# plt.show()
+
+#can do pie charts
+
+#can have labels but must have one label for each piece of data
+
+# plt.pie(x, labels=x)
+# plt.show()
+
+#can make a piece of data stand out with the explode option
+
+explode = np.array([0,0,0,0,0.2,0,0,0,0,0])
+# plt.pie(x, labels=x, explode=explode)
+# plt.show()
+
+#can make a pie chart with a legend
+
+plt.pie(x, explode=explode)
+plt.legend(x, title='Legend')
+plt.show()
+

@@ -1,0 +1,2 @@
+# matplotlib
+Matplotlib is about ploting out data. It has easy integration with numpy arrays. It can plot data, or put it in many diffrent types of graphs.  There is also a great number of customization options for the graphs.  For this code you will need to go through and uncomment the code one block at a time because you can not show multiple graphs with matplotlib at once and if you could it would be really confusing.  
