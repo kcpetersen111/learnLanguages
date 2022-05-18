@@ -3,3 +3,4 @@
 	perl
 	python/numpy
 	python/scipy
+	python/matplotlib
