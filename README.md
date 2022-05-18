@@ -2,3 +2,4 @@
 ## languages
 	perl
 	python/numpy
+	python/scipy
