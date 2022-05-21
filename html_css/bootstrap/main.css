@@ -1,0 +1,28 @@
+.blue {
+    background-color: aqua;
+}
+.green {
+    background-color: green;
+}
+.red {
+    background-color: red;
+}
+
+.mynavbar{
+    position:absolute; left:0px;
+    flex: auto;
+    padding:1% 0%;
+    height: 100%;
+}
+.mainContent{
+    position: absolute; right:0px;
+    flex: auto;
+    padding:1% 0%;
+    height: 100%;
+}
+#content{
+    position: relative;
+    left:25%; 
+    top:25%;
+    width: 50%;
+}
